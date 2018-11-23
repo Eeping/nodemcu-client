@@ -3,7 +3,6 @@ import './App.css';
 import axios from 'axios';
 import ReactTable from 'react-table';
 import 'react-table/react-table.css';
-import DeletedMessage from './DeletedMessage';
 
 import {
   LineChart,
@@ -22,8 +21,7 @@ class App extends Component {
     this.state = {
       sensor1: 0,
       sensor1alldata: [],
-      errors: '',
-      showDeletedMessage: false
+      errors: ''
     };
   }
 
@@ -63,17 +61,6 @@ class App extends Component {
     }, 5000);
   }
 
-  deleteAllHandler = () => {
-    axios
-      .get('https://glacial-citadel-67468.herokuapp.com/deleteall')
-      .then(result => {
-        this.setState({ showDeletedMessage: true });
-      })
-      .catch(err => {
-        console.log('unable to delete: ', err);
-      });
-  };
-
   render() {
     return (
       <div>
@@ -83,31 +70,17 @@ class App extends Component {
         </div>
 
         <div className="container">
-          <DeletedMessage show={this.state.showDeletedMessage} />
           <div className="row">
             <div className="text-center container col-sm-4">
               <div className="row">
-                <div className="text-center container col-sm-6">
-                  <div id="deleteall">
-                    <br />
-                    <button
-                      className="btn btn-primary"
-                      onClick={this.deleteAllHandler}
-                    >
-                      <h4>Delete All</h4>
-                    </button>
-                  </div>
-                </div>
-                <div className="text-center container col-sm-6">
-                  <div id="sensorvalue">
-                    <label>
-                      <h4>Sensor1 Value</h4>
-                    </label>
-                    <br />
-                    <label>
-                      <h4>{this.state.sensor1} </h4>
-                    </label>
-                  </div>
+                <div className="sensorvalue">
+                  <label>
+                    <h4>Sensor1 Value</h4>
+                  </label>
+                  <br />
+                  <label>
+                    <h4>{this.state.sensor1} </h4>
+                  </label>
                 </div>
               </div>
               <div>

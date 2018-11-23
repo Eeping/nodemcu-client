@@ -34,10 +34,14 @@
 .header {
   background-color: rgb(159, 187, 247);
 }
-.sensorvalue {
-  background-color: rgb(241, 241, 169);
+#deleteall {
+  background-color: rgb(189, 189, 174);
+  padding-bottom: 25px;
 }
 
+#sensorvalue {
+  background-color: rgb(48, 219, 231);
+}
 .sensortable {
   background-color: rgb(241, 201, 169);
 }
