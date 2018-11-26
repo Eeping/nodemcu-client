@@ -1,17 +1,18 @@
 import React from 'react';
 
-// removed data-dismiss="alert"  from button so that
-// onClick will handle it's close
 const DeletedMessage = props => {
   if (props.show) {
     return (
-      <div class="alert alert-success show alert-dismissible" role="alert">
+      <div className="alert alert-success show alert-dismissible" role="alert">
         All data deleted
         <button
           type="button"
-          class="close"
+          className="close"
+          data-dismiss="alert"
           aria-label="Close"
-          onClick={props.alertDismiss}
+          onClick={() => {
+            props.resetAlert();
+          }}
         >
           <span aria-hidden="true">&times;</span>
         </button>
